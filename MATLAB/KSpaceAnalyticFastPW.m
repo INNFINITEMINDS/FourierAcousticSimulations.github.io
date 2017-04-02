@@ -51,9 +51,9 @@ while(1)
     if shouldSaveMovie
         [A,map] = rgb2ind(frame2im(M(kk)),256);
         if kk == 1;
-            imwrite(A,map,'FastestMethod','gif', 'Loopcount',inf);
+            imwrite(A,map,'FastestMethod.gif','gif', 'Loopcount',inf);
         else
-            imwrite(A,map,'FastestMethod','gif','WriteMode','append');
+            imwrite(A,map,'FastestMethod.gif','gif','WriteMode','append');
         end
     end
     if kk == length(t)

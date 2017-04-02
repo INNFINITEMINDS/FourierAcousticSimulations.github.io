@@ -1,13 +1,4 @@
-# Why Did I Do This?
-When I first learned how computed tomography worked, it was mostly through mathematics and I never implemented the algorithms to perform the image reconstruction myself. Instead, I used MATLAB built-in functions like radon and iradon to do things for me. The obvious downside to using these built-ins was that I never got to understand and implement the actual algorithms. The few resources I could find had very complicated implementations and did a poor job of helping me to understand how to implement these algorithms from scratch. 
 
-Fortunately, after some time, I implemented a simple and easy-to-understand parallel-beam CT system in MATLAB without the use of radon and iradon. All the MATLAB files are short and well-commented, and I make extensive use of meshgrid, interp1, and interp2 functions to simplify many steps in the algorithms. 
-
-The goal of this code is NOT to provide a comprehensive toolkit that enables you to reconstruct an image for an arbitrary CT system, but rather to provide key insights on how a simple parallel-beam CT system works. Once this simple example is understood, it should be much easier to simulate larger CT systems with different imaging geometries, because at that point, CT really just becomes a big geometry problem. 
-
-# Elegant and Simple Derivation
-## What does a CT system do?
-A CT system effectively takes multiple projections of an object and tries to estimate what the object looks like at every point in space based on those projections. Here we say that the intensity of the object we are taking the projections of is f(x,y). In this parallel-beam geometry, in order to project f(x,y) onto a line, we must integrate f(x,y) along lines orthogonal to the line (...really plane) we are projecting onto. If we rotate this projection line, we can show how this projected profile changes as a function of angle: this is known as the sinogram or radon transform of f(x,y). 
 
 ![](https://cloud.githubusercontent.com/assets/10136046/18261138/5d015ace-73a9-11e6-9224-a74f51d615e8.png)
 

@@ -65,16 +65,24 @@ title('K-Space of Transmit Response');
 
 % Plotting the Result
 maxpsf_t = max(abs(psf_t(~isinf(psf_t) & ~isnan(psf_t)))); 
-figure; M = moviein(length(t)); kk = 1; 
+figure; M = moviein(length(t)); kk = 1; shouldSaveMovie = true;
 while(1)
     psf_tMag = abs(psf_t(:,:,kk));
     imagesc(x,z,20*log10(psf_tMag/(maxpsf_t)),[-dB 0]);
     zoom on; axis equal; axis xy; axis image;
     ylabel('z Axial Distance (mm)');
     xlabel('x Azimuthal Distance (mm)');
-    M(kk) = getframe;
+    M(kk) = getframe(gcf);
+    if shouldSaveMovie
+        [A,map] = rgb2ind(frame2im(M(kk)),256);
+        if kk == 1;
+            imwrite(A,map,'AngularSpectrumMethod','gif', 'Loopcount',inf);
+        else
+            imwrite(A,map,'AngularSpectrumMethod','gif','WriteMode','append');
+        end
+    end
     if kk == length(t)
-        kk = 1;
+        kk = 1; shouldSaveMovie = false;
     else 
         kk = kk + 1;
     end

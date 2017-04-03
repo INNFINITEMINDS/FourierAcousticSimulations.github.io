@@ -1,7 +1,7 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
 # Derivation
-(E=mc^2)，$$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}.$$
+{% raw %}
+  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping! 
+{% endraw %}
 
 # Point Source Method
 ![Alt Text](https://github.com/rehmanali1994/FourierAcousticSimulations.github.io/raw/master/MATLAB/PointSourceMethod.gif)
